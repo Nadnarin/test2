@@ -20,4 +20,5 @@ export type ColorCount = 3 | 5;
 export interface GeneratorOptions {
   mode: ColorMode;
   count: ColorCount;
+  topic: string;
 }
