@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="th">
   <head>
     <meta charset="UTF-8" />
@@ -23,45 +22,9 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-
-  <!-- moved and slightly hardened sendHeight script (only edits inside the provided code) -->
-
-  <script>
-    function sendHeight() {
-      // compute a robust document height
-      const h = Math.max(
-        document.documentElement.scrollHeight,
-        document.body.scrollHeight,
-        document.documentElement.offsetHeight,
-        document.body.offsetHeight,
-        document.documentElement.clientHeight
-      );
-      if (window.parent !== window) {
-        // ส่งเป็น object
-        window.parent.postMessage({ type: 'mf-height', height: h }, '*');
-      }
-    }
-
-    // initial send (after DOM is ready)
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', sendHeight, { once: true });
-    } else {
-      sendHeight();
-    }
-
-    // Observe body rather than documentElement to better capture content changes
-    try {
-      new ResizeObserver(sendHeight).observe(document.body);
-    } catch (err) {
-      // ResizeObserver unsupported -> fallback to window resize
-      window.addEventListener('resize', sendHeight);
-    }
-  </script>
-
-</body>
+    <script type="module" src="./index.tsx"></script>
+  </body>
 </html>
