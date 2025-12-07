@@ -1,0 +1,5 @@
+{
+  "name": "Smart Color Palette Generator",
+  "description": "An AI-powered color palette generator supporting 3 or 5 color modes with monochromatic or contrasting harmony styles.",
+  "requestFramePermissions": []
+}
